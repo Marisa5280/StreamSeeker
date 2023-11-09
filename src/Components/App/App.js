@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { getStreams } from "../../apicalls";
+import LandingForm from "../LandingForm/LandingForm";
 
 function App() {
   const [streams, setStreams] = useState(null);
@@ -22,6 +23,7 @@ function App() {
         {streams && console.log("streams", streams)}
         {/* HEADER comp: text as <Link>, <navLink> to saved path */}
       </header>
+      <LandingForm />
       {/* Landing Page route, wrapper comp contains: form comp */}
     </div>
   );
