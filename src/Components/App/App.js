@@ -1,7 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
-import { getStreams } from "./apicalls";
+import { getStreams } from "../../apicalls";
 
 function App() {
   const [streams, setStreams] = useState(null);
