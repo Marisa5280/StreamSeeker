@@ -1,19 +1,11 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-import { getStreams } from "../../apicalls";
+import { useState } from "react";
+import LandingForm from "../LandingForm/LandingForm";
 
 function App() {
   const [streams, setStreams] = useState(null);
-
-  useEffect(() => {
-    const fetchStreams = async () => {
-      const streamData = await getStreams();
-      setStreams(streamData);
-    };
-    fetchStreams();
-  }, []);
-
-// move fetch out of use effect and into form component
+  const [urlData, setUrlData] = useState(null);
+  const [altData, setAltData] = useState(null);
 
   return (
     <div className="App">
@@ -22,7 +14,14 @@ function App() {
         {streams && console.log("streams", streams)}
         {/* HEADER comp: text as <Link>, <navLink> to saved path */}
       </header>
-      {/* Landing Page route, wrapper comp contains: form comp */}
+      <LandingForm
+        urlData={urlData}
+        setUrlData={setUrlData}
+        altData={altData}
+        setAltData={setAltData}
+      />
+      {/* response page with states of data, and saved+setter */}
+      {/* saved page: pass saved+setter */}
     </div>
   );
 }
