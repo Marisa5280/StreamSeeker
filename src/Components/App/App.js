@@ -1,9 +1,10 @@
 import "./App.css";
 import { useState } from "react";
 import LandingForm from "../LandingForm/LandingForm";
+import StreamResults from "../StreamResults/StreamResults";
 
 function App() {
-  const [streams, setStreams] = useState(null);
+  // const [streams, setStreams] = useState(null);
   const [urlData, setUrlData] = useState(null);
   const [altData, setAltData] = useState(null);
 
@@ -11,7 +12,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className="header-name">STREAM SEEKER</h1>
-        {streams && console.log("streams", streams)}
+        {/* {streams && console.log("streams", streams)} */}
         {/* HEADER comp: text as <Link>, <navLink> to saved path */}
       </header>
       <LandingForm
@@ -20,6 +21,7 @@ function App() {
         altData={altData}
         setAltData={setAltData}
       />
+      <StreamResults urlData={urlData} altData={altData} />
       {/* response page with states of data, and saved+setter */}
       {/* saved page: pass saved+setter */}
     </div>
