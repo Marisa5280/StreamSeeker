@@ -3,7 +3,8 @@ import "./Saved.css";
 import Card from "../Card/Card";
 
 const Saved = () => {
-  const data = JSON.parse(localStorage.getItem("saved")) || [];
+  const savedData = localStorage.getItem('saved');
+  const data = savedData ? JSON.parse(savedData) : [];
   return (
     <div className="results-container">
       <SavedCards data={data} />
@@ -13,7 +14,7 @@ const Saved = () => {
 
 const SavedCards = ({ data }) => {
   console.log("saved", data);
-  return !data ? (
+  return !data.length ? (
     <p>No saved stream links! Add some!</p>
   ) : (
     data.map((propsObj) => {
