@@ -21,3 +21,10 @@
   height: 40vh;
   width: 25vw;
 }
+
+button {
+  height: 10vh;
+  width: 25vw;
+  /* flex-direction: column; */
+  /* justify-self: center; */
+}

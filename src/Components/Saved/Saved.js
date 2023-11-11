@@ -3,7 +3,7 @@ import "./Saved.css";
 import Card from "../Card/Card";
 
 const Saved = () => {
-  const data = localStorage.getItem('saved');
+  const data = JSON.parse(localStorage.getItem("saved")) || [];
   return (
     <div className="results-container">
       <SavedCards data={data} />
@@ -12,21 +12,23 @@ const Saved = () => {
 };
 
 const SavedCards = ({ data }) => {
-  console.log('saved0', data[0]);
+  console.log("saved", data);
   return !data ? (
     <p>No saved stream links! Add some!</p>
   ) : (
     data.map((propsObj) => {
       const { platform, id, title, artistName, thumbnailUrl, link } = propsObj;
-     return <Card
-        key={platform}
-        platform={platform}
-        title={title}
-        artistName={artistName}
-        thumbnailUrl={thumbnailUrl}
-        id={id}
-        link={link}
-      />;
+      return (
+        <Card
+          key={platform}
+          platform={platform}
+          title={title}
+          artistName={artistName}
+          thumbnailUrl={thumbnailUrl}
+          id={id}
+          link={link}
+        />
+      );
     })
   );
 };
