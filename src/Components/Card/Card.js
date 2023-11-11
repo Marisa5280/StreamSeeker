@@ -5,30 +5,16 @@ const handleSave = (props) => {
   const saved = localStorage.getItem(localKey);
   console.log("saved", saved);
 
-  [
-    {
-      platform: "amazonStore",
-      title: "dashstar* (VIP)",
-      artistName: "Knock2",
-      thumbnailUrl: "https://m.media-amazon.com/images/I/51nxztXYmoL.jpg",
-      id: "B0BRMQPH4V",
-      link: "https://amazon.com/dp/B0BRMQPH4V",
-    },
-    {
-      platform: "amazonMusic",
-      title: "dashstar* (VIP)",
-      artistName: "Knock2",
-      thumbnailUrl: "https://m.media-amazon.com/images/I/51nxztXYmoL.jpg",
-      id: "B0BRMQPH4V",
-      link: "https://music.amazon.com/albums/B0BRMDR92C?trackAsin=B0BRMQPH4V",
-    },
-  ];
 
   if (saved) {
     const savedArr = JSON.parse(saved);
-    const updatedSavedArr = [...savedArr, props];
-    // TODO: add a check for current item before saving
-    localStorage.setItem(localKey, JSON.stringify(updatedSavedArr));
+    const isItemAlreadySaved = savedArr.includes(props);
+    if (!isItemAlreadySaved) {
+      const updatedSavedArr = [...savedArr, props];
+      localStorage.setItem(localKey, JSON.stringify(updatedSavedArr));
+    } else {
+      console.warn('Item already exists in local storage:', props);
+    }
   } else {
     localStorage.setItem(localKey, JSON.stringify([props]));
   }
@@ -54,3 +40,23 @@ const Card = (props) => {
 };
 
 export default Card;
+
+
+  // [
+  //   {
+  //     platform: "amazonStore",
+  //     title: "dashstar* (VIP)",
+  //     artistName: "Knock2",
+  //     thumbnailUrl: "https://m.media-amazon.com/images/I/51nxztXYmoL.jpg",
+  //     id: "B0BRMQPH4V",
+  //     link: "https://amazon.com/dp/B0BRMQPH4V",
+  //   },
+  //   {
+  //     platform: "amazonMusic",
+  //     title: "dashstar* (VIP)",
+  //     artistName: "Knock2",
+  //     thumbnailUrl: "https://m.media-amazon.com/images/I/51nxztXYmoL.jpg",
+  //     id: "B0BRMQPH4V",
+  //     link: "https://music.amazon.com/albums/B0BRMDR92C?trackAsin=B0BRMQPH4V",
+  //   },
+  // ];
