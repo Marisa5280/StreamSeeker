@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { getUrlStreams, getAltStreams } from "../../apicalls";
 import './LandingForm.css';
+import { Link, useNavigate } from "react-router-dom";
 
-const LandingForm = ({ setUrlData, setAltData }) => {
+const LandingForm = ({ setUrlData, urlData, setAltData }) => {
   const [url, setUrl] = useState("");
   const [altService, setAltService] = useState(null);
   const [altType, setAltType] = useState(null);
   const [altId, setAltId] = useState(null);
+  const navigate = useNavigate();
 
   const fetchUrlStreams = async (url) => {
     const urlStreamData = await getUrlStreams(url);
     setUrlData(urlStreamData);
+    console.log(urlData)
   };
 
   const fetchAltStreams = async (type, service, id) => {
@@ -98,15 +101,20 @@ const LandingForm = ({ setUrlData, setAltData }) => {
     event.preventDefault();
     if (url) {
       fetchUrlStreams(url);
+      navigate("/results");
     } else if (altService && altType && altId) {
       fetchAltStreams(altType, altService, altId);
+      navigate("/results");
     }
+    
     clearForms();
   };
 
   const clearForms = () => {
-    setUrlData(null);
-    setAltData(null);
+    setUrl(null);
+    setAltId(null);
+    setAltService(null);
+    setAltType(null);
   };
 
   return (
