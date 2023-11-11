@@ -1,0 +1,30 @@
+.landing-form-wrapper {
+  height: 80vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.url-input {
+  height: 10vh;
+  width: 25vw;
+}
+
+/* .alt-service-select .alt-type-select .alt-id-input {
+  height: 10vh;
+  width: 5vw;
+} */
+
+.alt-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40vh;
+  width: 25vw;
+}
+
+button {
+  height: 10vh;
+  width: 25vw;
+  /* flex-direction: column; */
+  /* justify-self: center; */
+}

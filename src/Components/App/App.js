@@ -1,18 +1,19 @@
 import "./App.css";
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 import LandingForm from "../LandingForm/LandingForm";
 import StreamResults from "../StreamResults/StreamResults";
+import Saved from "../Saved/Saved";
 
 function App() {
   const [urlData, setUrlData] = useState(null);
   const [altData, setAltData] = useState(null);
-  console.log('app-url-data', urlData);
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="header-name">STREAM SEEKER</h1>
-        {/* HEADER comp: text as <Link>, <navLink> to saved path */}
+        <NavLink to={'/'} className="header-name"><h1>STREAM SEEKER</h1> </NavLink>
+        <NavLink to={'/saved'} className='header-link-saved'> My Saved Streams</NavLink>
       </header>
       <Routes>
         <Route
@@ -32,11 +33,10 @@ function App() {
         />
         <Route
           path="/saved"
-          element={<p>hello</p>}
+          element={<Saved />}
         />
+        <Route path='/*' element={<p>the page you are looking for does not exist</p>} />
       </Routes>
-      {/* response page with states of data, and saved+setter */}
-      {/* saved page: pass saved+setter */}
     </div>
   );
 }

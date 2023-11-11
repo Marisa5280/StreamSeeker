@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { getUrlStreams, getAltStreams } from "../../apicalls";
 import './LandingForm.css';
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
-const LandingForm = ({ setUrlData, urlData, setAltData }) => {
+const LandingForm = ({ setUrlData, setAltData }) => {
   const [url, setUrl] = useState("");
   const [altService, setAltService] = useState(null);
   const [altType, setAltType] = useState(null);
@@ -13,7 +14,6 @@ const LandingForm = ({ setUrlData, urlData, setAltData }) => {
   const fetchUrlStreams = async (url) => {
     const urlStreamData = await getUrlStreams(url);
     setUrlData(urlStreamData);
-    console.log(urlData)
   };
 
   const fetchAltStreams = async (type, service, id) => {
@@ -118,7 +118,7 @@ const LandingForm = ({ setUrlData, urlData, setAltData }) => {
   };
 
   return (
-    <div className="Landing-form-wrapper">
+    <div className="landing-form-wrapper">
       <form
         className="url-form"
         onChange={(event) => setUrl(event.target.value)}
@@ -127,10 +127,15 @@ const LandingForm = ({ setUrlData, urlData, setAltData }) => {
       >
         {urlInput}
       </form>
-      {altForm}
       <button onClick={submitStreamQuery}>SEARCH</button>
+      {altForm}
     </div>
   );
 };
 
 export default LandingForm;
+
+LandingForm.propTypes = {
+  setUrlData: PropTypes.func.isRequired,
+  setAltData: PropTypes.func.isRequired,
+};

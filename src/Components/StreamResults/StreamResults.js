@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Card from "../Card/Card";
 import "./StreamResults.css";
 
@@ -32,3 +33,29 @@ const StreamCards = ({ data }) => {
 };
 
 export default StreamResults;
+
+StreamResults.propTypes = {
+  urlData: PropTypes.shape({
+    platform: PropTypes.string,
+    title: PropTypes.string,
+    artistName: PropTypes.string,
+    thumbnailUrl: PropTypes.string,
+    id: PropTypes.string,
+    link: PropTypes.string,
+  }),
+  altData: PropTypes.shape({
+    platform: PropTypes.string,
+    title: PropTypes.string,
+    artistName: PropTypes.string,
+    thumbnailUrl: PropTypes.string,
+    id: PropTypes.string,
+    link: PropTypes.string,
+  }),
+};
+
+StreamCards.propTypes = {
+  data: PropTypes.shape({
+    entitiesByUniqueId: PropTypes.object,
+    linksByPlatform: PropTypes.object,
+  }),
+};
