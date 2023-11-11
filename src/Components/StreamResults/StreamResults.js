@@ -1,30 +1,34 @@
-import Card from "../Cards/Cards";
+import Card from "../Card/Card";
 import "./StreamResults.css";
 
-function StreamResults({ urlData, altData }) {
+const StreamResults = ({ urlData, altData }) => {
+  const data = urlData ? urlData : altData;
   return (
     <div className="results-container">
-      {!!encounters.length ? (
-        <EncounterCards encounters={encounters} />
-      ) : (
-        <h2>No encounters yet, add encounters!</h2>
-      )}
+      {data && <StreamCards data={data} />}
     </div>
   );
-}
+};
 
-function StreamCards({  }) {
-  return encounters.map((encounter) => {
-    return (
+const StreamCards = ({ data }) => {
+  const { entitiesByUniqueId, linksByPlatform } = data;
+  const resultKeys = Object.keys(entitiesByUniqueId);
+
+  return resultKeys.map((key) => {
+    const { platforms, id, title, artistName, thumbnailUrl } =
+      entitiesByUniqueId[key];
+    return platforms.map((platform) => (
       <Card
-        location={encounter.title}
-        description={encounter.description}
-        id={encounter.id}
-        key={encounter.id}
-        addEncounter={addEncounter}
+        key={platform}
+        platform={platform}
+        title={title}
+        artistName={artistName}
+        thumbnailUrl={thumbnailUrl}
+        id={id}
+        link={linksByPlatform[platform].url}
       />
-    );
+    ));
   });
-}
+};
 
 export default StreamResults;
