@@ -4,8 +4,6 @@ import "./Card.css";
 const handleSave = (props) => {
   const localKey = "saved";
   const saved = localStorage.getItem(localKey);
-  console.log("saved", saved);
-
 
   if (saved) {
     const savedArr = JSON.parse(saved);

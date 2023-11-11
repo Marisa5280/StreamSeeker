@@ -127,8 +127,8 @@ const LandingForm = ({ setUrlData, setAltData }) => {
       >
         {urlInput}
       </form>
-      <button onClick={submitStreamQuery}>SEARCH</button>
       {altForm}
+      <button onClick={submitStreamQuery}>SEARCH</button>
     </div>
   );
 };
