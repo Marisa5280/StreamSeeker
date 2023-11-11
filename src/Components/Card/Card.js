@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./Card.css";
 
 const handleSave = (props) => {
@@ -8,7 +9,7 @@ const handleSave = (props) => {
 
   if (saved) {
     const savedArr = JSON.parse(saved);
-    const isItemAlreadySaved = savedArr.includes(props);
+    const isItemAlreadySaved = savedArr.some(savedObj => savedObj.id === props.id && savedObj.platform === props.platform);
     if (!isItemAlreadySaved) {
       const updatedSavedArr = [...savedArr, props];
       localStorage.setItem(localKey, JSON.stringify(updatedSavedArr));
@@ -41,22 +42,11 @@ const Card = (props) => {
 
 export default Card;
 
-
-  // [
-  //   {
-  //     platform: "amazonStore",
-  //     title: "dashstar* (VIP)",
-  //     artistName: "Knock2",
-  //     thumbnailUrl: "https://m.media-amazon.com/images/I/51nxztXYmoL.jpg",
-  //     id: "B0BRMQPH4V",
-  //     link: "https://amazon.com/dp/B0BRMQPH4V",
-  //   },
-  //   {
-  //     platform: "amazonMusic",
-  //     title: "dashstar* (VIP)",
-  //     artistName: "Knock2",
-  //     thumbnailUrl: "https://m.media-amazon.com/images/I/51nxztXYmoL.jpg",
-  //     id: "B0BRMQPH4V",
-  //     link: "https://music.amazon.com/albums/B0BRMDR92C?trackAsin=B0BRMQPH4V",
-  //   },
-  // ];
+Card.propTypes = {
+  platform: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  artistName: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  thumbnailUrl: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+};
