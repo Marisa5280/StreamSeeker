@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# STREAM SEEKER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This web application, built using React (create-react-app), React Router, CSS, and end-to-end tested with Cypress, allows users to explore links to songs or albums across various streaming platforms.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+To run this app locally, follow these steps:
 
-### `npm start`
+1. Clone this repository to your local machine.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    `git clone <repository-url>` 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Change into the project directory.**
 
-### `npm test`
+    `cd stream-seeker`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Install dependencies.**
 
-### `npm run build`
+    `npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Run the app locally.**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    `npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app should now be accessible at [http://localhost:3000/](http://localhost:3000/).
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **User Input:** Users can input a song or album URL or provide an ID and the platform it is from. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **User Interaction:** Users can save cards of stream links to a personal collection held in local storage. If A user no longer wants to save a song or album card it can easily be removed. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **API Integration:** The app makes fetch requests to an external API (`https://api.song.link/v1-alpha.1/links`) to retrieve data for other streaming platforms hosting the specified song or album.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **React Router:** The app uses React Router for navigation, providing a seamless single-page application experience.
 
-## Learn More
+- **CSS Styling:** Custom styling using CSS for an appealing and user-friendly interface.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **End-to-End Testing with Cypress:** The application is end-to-end tested using Cypress to ensure robustness and correctness.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+1. **Home Page:** Upon accessing the app, users are presented with a landing page featuring a form to input song or album details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Input Form:** Users can input either a song/album URL or an ID along with the platform it is from. Clicking the "SEARCH" button triggers the data retrieval process.
 
-### Analyzing the Bundle Size
+3. **Results Page:** The app navigates to a results page displaying data from various streaming platforms for the specified song or album.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. **Error Handling:** The app provides informative error messages in case of invalid inputs or unsuccessful API requests.
