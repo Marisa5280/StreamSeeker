@@ -4,14 +4,19 @@ import "./StreamResults.css";
 
 const StreamResults = ({ urlData, altData }) => {
   const data = urlData ? urlData : altData;
-  return (
+  return data ? (
     <div className="results-container">
-      {data && <StreamCards data={data} />}
+      {data.entityUniqueId ? <StreamCards data={data} /> : <p>Error</p>}
     </div>
+  ) : (
+    <p>loading</p>
   );
 };
 
 const StreamCards = ({ data }) => {
+  if (!data) {
+    return <p>No stream data available!</p>;
+  }
   const { entitiesByUniqueId, linksByPlatform } = data;
   const resultKeys = Object.keys(entitiesByUniqueId);
 

@@ -1,7 +1,12 @@
 .landing-form-wrapper {
-  height: 80vh;
+  height: 100vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F5D09D;
+  margin: 2%;
+  border-radius: .7em;
 }
 
 .url-input {
@@ -9,22 +14,24 @@
   width: 25vw;
 }
 
-/* .alt-service-select .alt-type-select .alt-id-input {
-  height: 10vh;
-  width: 5vw;
-} */
+.alt-service-select, .alt-type-select, .alt-id-input {
+ width: 100%;
+ }
 
 .alt-form {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 40vh;
-  width: 25vw;
+  /* flex-direction: column; */
+  justify-content: center;
+  height: 10vh;
+  width: 45vw;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 button {
   height: 10vh;
   width: 25vw;
-  /* flex-direction: column; */
-  /* justify-self: center; */
+  border: 0px;
+  background-color: #E4551F;
+  border-radius: 1em;
 }

@@ -1,11 +1,12 @@
 .results-container {
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 97%;
+
 }
 
-h2 {
+/* h2 {
   grid-column: 2;
   text-align: center;
-}
+} */
