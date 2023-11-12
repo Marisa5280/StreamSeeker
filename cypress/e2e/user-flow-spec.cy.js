@@ -69,7 +69,7 @@ describe("Stream Seeker", () => {
     cy.get(".results-container").get(".card").should("have.length", "16");
   });
 
-  it.only("can submit alt form and see data on dom", () => {
+  it("can submit alt form and see data on dom", () => {
     cy.intercept(
       "GET",
       "https://api.song.link/v1-alpha.1/links?platform=spotify&type=song&id=6OpU3cvY19M2hFxTbLKy5L",
@@ -87,10 +87,8 @@ describe("Stream Seeker", () => {
     cy.get(".alt-form").get(".alt-id-input").type("6OpU3cvY19M2hFxTbLKy5L");
     cy.get("button").click();
     cy.url().should("contain", "localhost:3000/results");
-    cy.get(".results-container");
-    cy.wait(5000)
-    // .get(".card").first().should("contain", "Juno");
-    // cy.get(".card").first().should("contain", "Choker");
+    cy.get(".results-container").get(".card").first().should("contain", "Juno");
+    cy.get(".card").first().should("contain", "Choker");
     cy.get(".card")
       .first()
       .get(".card-thumbnail")
