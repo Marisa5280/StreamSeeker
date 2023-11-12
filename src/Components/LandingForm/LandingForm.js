@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { getUrlStreams, getAltStreams } from "../../apicalls";
 import './LandingForm.css';
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LandingForm = ({ setUrlData, setAltData }) => {
   const [url, setUrl] = useState("");
@@ -96,7 +96,7 @@ const LandingForm = ({ setUrlData, setAltData }) => {
       ></input>
     </form>
   );
-  // check that values have actually been selected, if not show message to fill values
+
   const submitStreamQuery = (event) => {
     event.preventDefault();
     if (url) {
@@ -127,6 +127,7 @@ const LandingForm = ({ setUrlData, setAltData }) => {
       >
         {urlInput}
       </form>
+      <h2>or</h2>
       {altForm}
       <button onClick={submitStreamQuery}>SEARCH</button>
     </div>

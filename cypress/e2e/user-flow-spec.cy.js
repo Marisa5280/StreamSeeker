@@ -130,7 +130,9 @@ describe("Stream Seeker", () => {
         "contain",
         "https://music.amazon.com/albums/B07FMHQ6W1?trackAsin=B07FMR3LX3"
       );
-    cy.get('button').click().get('.results-container').contains('p', 'No saved stream links! Add some!')
-
+    cy.get("button")
+      .click()
+      .get(".results-container")
+      .contains("p", "No saved stream links! Add some!");
   });
 });

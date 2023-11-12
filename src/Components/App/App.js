@@ -6,8 +6,8 @@ import StreamResults from "../StreamResults/StreamResults";
 import Saved from "../Saved/Saved";
 
 function App() {
-  const [urlData, setUrlData] = useState(null);
-  const [altData, setAltData] = useState(null);
+  const [urlData, setUrlData] = useState({});
+  const [altData, setAltData] = useState({});
 
   return (
     <div className="App">
