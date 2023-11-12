@@ -3,25 +3,38 @@ import "./Card.css";
 
 const handleSave = (props) => {
   const localKey = "saved";
-  const saved = localStorage.getItem(localKey);
+  const localData = localStorage.getItem(localKey);
+  const saved = JSON.parse(localData);
 
   if (saved) {
-    const savedArr = JSON.parse(saved);
-    const isItemAlreadySaved = savedArr.some(savedObj => savedObj.id === props.id && savedObj.platform === props.platform);
+    const isItemAlreadySaved = saved.some(
+      (savedObj) =>
+        savedObj.id === props.id && savedObj.platform === props.platform
+    );
     if (!isItemAlreadySaved) {
-      const updatedSavedArr = [...savedArr, props];
+      const updatedSavedArr = [...saved, props];
       localStorage.setItem(localKey, JSON.stringify(updatedSavedArr));
     } else {
-      console.warn('Item already exists in local storage:', props);
+      console.warn("Item already exists in local storage:", props);
     }
   } else {
     localStorage.setItem(localKey, JSON.stringify([props]));
   }
-  return <Card {...props} />;
 };
 
-const Card = (props) => {
-  const { platform, title, artistName, id, thumbnailUrl, link } = props;
+const Card = ({
+  platform,
+  title,
+  artistName,
+  id,
+  thumbnailUrl,
+  link,
+  isSavedView,
+  handleRemove,
+}) => {
+  const streamResult = { platform, title, artistName, id, thumbnailUrl, link };
+  const handleClick = () =>
+    isSavedView ? handleRemove(id) : handleSave(streamResult);
   return (
     <div className="card" id={id}>
       <h2 className="card-title">{title}</h2>
@@ -31,8 +44,8 @@ const Card = (props) => {
         {link}
       </a>
       <p className="card-platform">{platform}</p>
-      <button className="card-save" onClick={() => handleSave(props)}>
-        Save
+      <button className="card-save" onClick={handleClick}>
+        {isSavedView ? "Remove" : "Save"}
       </button>
     </div>
   );
@@ -47,4 +60,6 @@ Card.propTypes = {
   id: PropTypes.string.isRequired,
   thumbnailUrl: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  isSavedView: PropTypes.bool,
+  handleRemove: PropTypes.func,
 };
