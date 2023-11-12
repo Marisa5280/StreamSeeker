@@ -3,10 +3,11 @@ import Card from "../Card/Card";
 import "./StreamResults.css";
 
 const StreamResults = ({ urlData, altData }) => {
-  const data = urlData ? urlData : altData;
+  const data = altData.entitiesByUniqueId ? altData : urlData;
   return data ? (
     <div className="results-container">
-      {data.entityUniqueId ? <StreamCards data={data} /> : <p>Error</p>}
+      {data.entityUniqueId && <StreamCards data={data} />  }
+      {data.error && <p>Error</p>}
     </div>
   ) : (
     <p>loading</p>
