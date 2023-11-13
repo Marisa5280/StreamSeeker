@@ -1,7 +1,11 @@
+
 # STREAM SEEKER
 
 This web application, built using React (create-react-app), React Router, CSS, and end-to-end tested with Cypress, allows users to explore links to songs or albums across various streaming platforms.
 
+<img width="1440" alt="Screenshot 2023-11-12 at 7 40 54 PM" src="https://github.com/Marisa5280/StreamSeeker/assets/126411245/f215149a-ddf9-40a1-ab1d-f2b54db234e5">
+<img width="1440" alt="Screenshot 2023-11-12 at 7 51 44 PM" src="https://github.com/Marisa5280/StreamSeeker/assets/126411245/913be14f-143c-411d-ac3c-4988b6bdc0b7">
+<img width="1439" alt="Screenshot 2023-11-12 at 7 53 19 PM" src="https://github.com/Marisa5280/StreamSeeker/assets/126411245/e263e350-a83b-464e-a325-d70a52a90bbc">
 ## Getting Started
 
 To run this app locally, follow these steps:
