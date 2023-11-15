@@ -12,8 +12,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <NavLink to={'/'} className="header-name"><h1>STREAM SEEKER</h1> </NavLink>
-        <NavLink to={'/saved'} className='header-link-saved'> My Saved Streams</NavLink>
+        <NavLink to={"/"} className="header-name">
+          <h1>STREAM SEEKER</h1>{" "}
+        </NavLink>
+        <NavLink to={"/saved"} className="header-link-saved">
+          {" "}
+          My Saved Streams
+        </NavLink>
       </header>
       <Routes>
         <Route
@@ -31,11 +36,15 @@ function App() {
           path="/results"
           element={<StreamResults urlData={urlData} altData={altData} />}
         />
+        <Route path="/saved" element={<Saved />} />
         <Route
-          path="/saved"
-          element={<Saved />}
+          path="/*"
+          element={
+            <div className="error-container">
+              <p>the page you are looking for does not exist</p>
+            </div>
+          }
         />
-        <Route path='/*' element={<p>the page you are looking for does not exist</p>} />
       </Routes>
     </div>
   );

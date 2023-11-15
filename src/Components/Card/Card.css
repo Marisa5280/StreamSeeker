@@ -1,15 +1,38 @@
 .card {
   box-sizing: border-box;
-  border: 3px solid black;
   padding: 10px;
-  /* height: 50%; */
-  width: 50%;
+  width: 48%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f5d09d;
+  border: 5px solid #e4551f;
+  border-radius: 4%;
+  margin: 2px;
 }
 
 .card-thumbnail {
   height: 50%;
   width: 50%;
+  border: 2px solid #e4551f;
+}
+.card-link {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word; /* Added to allow long words to break and prevent overflow */
+}
+
+.card-link,
+.card-platform {
+  margin-top: 5px; /* Add some space between elements */
+}
+
+/* Additional styles for better aesthetics */
+.card-link {
+  color: #1e90ff; /* Change the link color to suit your design */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make the link text bold */
+  margin-top: 5px; /* Add some space between the image and the link */
 }

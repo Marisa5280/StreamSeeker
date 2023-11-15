@@ -106,7 +106,6 @@ const LandingForm = ({ setUrlData, setAltData }) => {
       fetchAltStreams(altType, altService, altId);
       navigate("/results");
     }
-    
     clearForms();
   };
 

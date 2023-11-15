@@ -39,7 +39,9 @@ const SavedCards = ({ data }) => {
       );
     })
   ) : (
-    <p>No saved stream links! Add some!</p>
+    <div className="error-container">
+      <p>No saved stream links! Add some!</p>
+    </div>
   );
 };
 
