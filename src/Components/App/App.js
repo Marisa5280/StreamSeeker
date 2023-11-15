@@ -13,10 +13,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <NavLink to={"/"} className="header-name">
-          <h1>STREAM SEEKER</h1>{" "}
+          <h1>STREAM SEEKER</h1>
         </NavLink>
         <NavLink to={"/saved"} className="header-link-saved">
-          {" "}
           My Saved Streams
         </NavLink>
       </header>
