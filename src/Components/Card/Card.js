@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import "./Card.css";
+import { useState } from "react";
 
-const handleSave = (props) => {
+const handleSave = (props, setSavedStreamMsg) => {
   const localKey = "saved";
   const localData = localStorage.getItem(localKey);
   const saved = JSON.parse(localData);
@@ -14,6 +15,10 @@ const handleSave = (props) => {
     if (!isItemAlreadySaved) {
       const updatedSavedArr = [...saved, props];
       localStorage.setItem(localKey, JSON.stringify(updatedSavedArr));
+      setSavedStreamMsg('Stream Saved!');
+      setTimeout(() => {
+        setSavedStreamMsg(null);
+      }, 3000);
     } else {
       console.warn("Item already exists in local storage:", props);
     }
@@ -32,9 +37,10 @@ const Card = ({
   isSavedView,
   handleRemove,
 }) => {
+  const [savedStreamMsg, setSavedStreamMsg] = useState(null);
   const streamResult = { platform, title, artistName, id, thumbnailUrl, link };
   const handleClick = () =>
-    isSavedView ? handleRemove(id) : handleSave(streamResult);
+    isSavedView ? handleRemove(id) : handleSave(streamResult, setSavedStreamMsg);
   return (
     <div className="card" id={id}>
       <h2 className="card-title">{title}</h2>
@@ -47,6 +53,7 @@ const Card = ({
       <button className="card-save" onClick={handleClick}>
         {isSavedView ? "Remove" : "Save"}
       </button>
+      {savedStreamMsg && <p className="save-stream-msg">{savedStreamMsg}</p>}
     </div>
   );
 };
