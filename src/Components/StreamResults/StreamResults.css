@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 97%;
-
+  height: 100%;
 }
 
 /* h2 {

@@ -4,9 +4,9 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #F5D09D;
+  background-color: #f5d09d;
   margin: 2%;
-  border-radius: .7em;
+  border-radius: 0.7em;
 }
 
 .url-input {
@@ -14,13 +14,14 @@
   width: 25vw;
 }
 
-.alt-service-select, .alt-type-select, .alt-id-input {
- width: 100%;
- }
+.alt-service-select,
+.alt-type-select,
+.alt-id-input {
+  width: 100%;
+}
 
 .alt-form {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   height: 10vh;
   width: 45vw;
@@ -32,6 +33,13 @@ button {
   height: 10vh;
   width: 25vw;
   border: 0px;
-  background-color: #E4551F;
+  background-color: #e4551f;
   border-radius: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:active {
+  background-color: #c23c13;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }

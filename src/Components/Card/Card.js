@@ -43,7 +43,7 @@ const Card = ({
       <a className="card-link" href={link}>
         {link}
       </a>
-      <p className="card-platform">{platform}</p>
+      <h3 className="card-platform">{platform}</h3>
       <button className="card-save" onClick={handleClick}>
         {isSavedView ? "Remove" : "Save"}
       </button>

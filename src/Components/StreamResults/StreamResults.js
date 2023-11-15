@@ -6,8 +6,12 @@ const StreamResults = ({ urlData, altData }) => {
   const data = altData.entitiesByUniqueId ? altData : urlData;
   return data ? (
     <div className="results-container">
-      {data.entityUniqueId && <StreamCards data={data} />  }
-      {data.error && <p>Error</p>}
+      {data.entityUniqueId && <StreamCards data={data} />}
+      {data.error && (
+        <div className="error-container">
+          <p>Error</p>
+        </div>
+      )}
     </div>
   ) : (
     <p>loading</p>

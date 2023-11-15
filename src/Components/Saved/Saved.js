@@ -17,6 +17,7 @@ const Saved = () => {
 
 const SavedCards = ({ data }) => {
   const [streams, setStreams] = useState(data);
+
   const handleRemove = (id) => {
     const filteredStreams = streams.filter(
       (streamResult) => streamResult.id !== id
@@ -26,6 +27,7 @@ const SavedCards = ({ data }) => {
     localStorage.setItem(localKey, stringifiedLocalValue);
     setStreams(localValue);
   };
+  
   return streams ? (
     streams.map((streamResult) => {
       const cardKey = `${streamResult.id}-${streamResult.platform}`;
@@ -39,7 +41,9 @@ const SavedCards = ({ data }) => {
       );
     })
   ) : (
-    <p>No saved stream links! Add some!</p>
+    <div className="error-container">
+      <p>No saved stream links! Add some!</p>
+    </div>
   );
 };
 
